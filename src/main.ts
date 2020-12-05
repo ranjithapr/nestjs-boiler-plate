@@ -32,6 +32,8 @@ async function bootstrap() {
   app.startAllMicroservices();
 
   //GRPC End
+  //REST- Start
   //await app.listen(config.get<number>('port'));
+  //REST-END
 }
 bootstrap();

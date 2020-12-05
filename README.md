@@ -29,6 +29,14 @@ $ npm run start:hmr
 npm run start:prod
 ```
 
+How to use GRPC and Rest End points
+1. If you would like to use GRPC services then 
+main.ts - comment out code between   //REST- Start and   //REST- End, uncomment between //GRPC Start and //GRPC end
+user.controller.ts - comment out code between   //REST- Start and   //REST- End , uncomment between //GRPC Start and //GRPC end
+
+2. If you would like to use Rest endpoints then 
+main.ts - comment out code between   //GRPC- Start and   //GRPC- End, uncomment between //REST Start and //REST end
+user.controller.ts - comment out code between   //GRPC- Start and   //GRPC- End , uncomment between //REST Start and //REST end
 
 
 

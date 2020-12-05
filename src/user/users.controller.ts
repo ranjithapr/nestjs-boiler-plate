@@ -1,3 +1,4 @@
+//REST- Start
 // import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 // import UsersService from './users.service';
 // import CreateUserDto from './dto/createUser.dto';
@@ -34,6 +35,7 @@
 //     this.usersService.deleteUser(Number(id));
 //   }
 // }
+//REST- End
 
 //GRPC controller
 //GRPC Start
