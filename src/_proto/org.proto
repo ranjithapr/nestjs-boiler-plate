@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package orgs;
+
+
+message Org {
+  string id = 1;
+  string name = 3;
+}
+
+service OrganizationsService {
+  rpc findByName (Name) returns (Org) {}
+}
+
+message Name {
+  string name = 1;
+}

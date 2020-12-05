@@ -33,7 +33,7 @@ async function bootstrap() {
 
   //GRPC End
   //REST- Start
-  //await app.listen(config.get<number>('port'));
+  await app.listen(config.get<number>('port'));
   //REST-END
 }
 bootstrap();
