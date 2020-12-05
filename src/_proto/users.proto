@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package users;
+
+
+message User {
+  string id = 1;
+  string city = 2;
+  string name = 3;
+}
+
+service UsersService {
+  rpc findOne (UserById) returns (User) {}
+}
+
+message UserById {
+  int32 id = 1;
+}

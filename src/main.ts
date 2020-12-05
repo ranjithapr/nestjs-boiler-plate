@@ -5,6 +5,8 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { ValidationPipe } from '@nestjs/common';
 import { AllExceptionsFilter } from './util/exception.filter'
 import { LoggerMiddleware } from './util/requestlogger/request.logger'
+import * as path from 'path';
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -16,16 +18,20 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionsFilter());
   app.use(new LoggerMiddleware().use);
 
-  //   await app.connectMicroservice<MicroserviceOptions>({
-  //   transport: Transport.GRPC,
-  //   options: {
-  //     package: 'subscribers',
-  //     protoPath: join(process.cwd(), 'src/subscribers/subscribers.proto'),
-  //     url: configService.get('GRPC_CONNECTION_URL')
-  //   },
-  // });
+  //GRPC-start
+
+  await app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.GRPC,
+    options: {
+      package: 'users',
+      protoPath: path.join(process.cwd(), 'src/_proto/users.proto'),
+      url: config.get('GRPC_CONNECTION_URL')
+    },
+  });
  
-  // app.startAllMicroservices();
-  await app.listen(config.get<number>('port'));
+  app.startAllMicroservices();
+
+  //GRPC End
+  //await app.listen(config.get<number>('port'));
 }
 bootstrap();

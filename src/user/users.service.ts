@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import CreateUserDto from './dto/createUser.dto';
-import User from './user.interface';
+import {User} from './user.interface';
 import UpdateUserDto from './dto/updateUser.dto';
  
 @Injectable()
@@ -12,7 +12,7 @@ export default class UsersService {
     return this.users;
   }
  
-  getUserById(id: number) {
+  findOne(id: number) {
     const user = this.users.find(user => user.id === id);
     if (user) {
       return user;
